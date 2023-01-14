@@ -12,17 +12,18 @@ const login = () =>{
         };
     };
 };
-const getProfile = () =>{
-    return (req,res,next)=>{
+const register = () =>{
+    return async(req,res,next)=>{
         try {
-          const {user} = res.locals;
-          res.status(200).json(response(user));
+            const data = req.body;
+            const createdUser = await authService.register(data)
+            res.status(200).json(response(createdUser,"create successfully!"))
         } catch (error) {
-          next(error);
+            next(error);
         }
-      }
-};
+    }
+}
 module.exports = {
     login,
-    getProfile,
+    register,
 }

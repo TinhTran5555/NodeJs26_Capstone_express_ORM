@@ -1,5 +1,3 @@
-// middleware verify token
-
 const jwt = require('jsonwebtoken');
 const { AppError } = require("../helpers/error");
 const {User} = require('../models');
@@ -19,14 +17,10 @@ const authorization = async (req,res,next)=>{
     try {
         const token = extractTokenfromHeader(req.headers);
         const payload = jwt.verify(token,configs.SECRET_KEY);
-        // console.log(payload);
-        // dùng token payload có chứa id của user ddeere lấy thông tin
         const user = await User.findByPk(payload.id);
         if(!user){
             next(new AppError(401,"Invalid Token"));
         };
-
-        // lưu trữ thông tin vào res, để có thể truy cập các middleware hay controller khác
         res.locals.user = user;
 
         next();

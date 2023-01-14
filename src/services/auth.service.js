@@ -21,14 +21,30 @@ const login = async(credentials) =>{
         if(!isMatched){
             throw new AppError(400,'Email or password invalid');
         };
-        
         return generateToken(user);
         
     } catch (error) {
         throw error;
     }
 };
+const register = async(data)=>{
+    try {
+        const userFound = await User.findOne({
+            where:{
+                email:data.email,
+            }
+        })
+        if(userFound){
+            throw new AppError(401,"email is existed")
+        }
+        const createdUser = await User.create(data)
+        return createdUser;
+    } catch (error) {
+        throw error
+    }
+}
 
 module.exports = {
     login,
+    register
 };
