@@ -1,0 +1,508 @@
+{
+	"info": {
+		"_postman_id": "b2dc7b2b-414a-4994-a785-525da8ca4959",
+		"name": "CapstoneORM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24759482"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"defg@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"name\": \"tinh\",\r\n    \"age\": \"26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/capstone/v1/register",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"abcd@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/capstone/v1/login",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3MzY2Mzc5NiwiZXhwIjoxNjczNzA2OTk2fQ.fCFfU_OJTZQtfkJfxsaP8Q5eqn-XXyF2SRbhAHjCl3s",
+							"host": [
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+								"eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3MzY2Mzc5NiwiZXhwIjoxNjczNzA2OTk2fQ",
+								"fCFfU_OJTZQtfkJfxsaP8Q5eqn-XXyF2SRbhAHjCl3s"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home",
+			"item": [
+				{
+					"name": "getAllIamge",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/capstone/v1/home",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllIamge Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/capstone/v1/home/:name",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"home",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "l"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Details",
+			"item": [
+				{
+					"name": "getDetailsImgByImgId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/capstone/v1/detail/:imgId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"detail",
+								":imgId"
+							],
+							"variable": [
+								{
+									"key": "imgId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDetailCommentByImgId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/capstone/v1/comment/:imgId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"comment",
+								":imgId"
+							],
+							"variable": [
+								{
+									"key": "imgId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckSaveIamge",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3MzY2ODk3OCwiZXhwIjoxNjczNzEyMTc4fQ.OzxjGfr4RTMmVYB_q0K9uhOWdHCNRv8ZQAR7mrGZcKw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/capstone/v1/checksaveimg/:imgId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"checksaveimg",
+								":imgId"
+							],
+							"variable": [
+								{
+									"key": "imgId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDetailCommentByImgId Copy 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzc1MDk2MywiZXhwIjoxNjczNzk0MTYzfQ.kLZngufb9qBYQn42jsgjbgkZailJKWt7iRtFWCv60Hs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imgId\": 1,\r\n    \"cmt\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/capstone/v1/savecmt",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"savecmt"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manage",
+			"item": [
+				{
+					"name": "getProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzc1MDk2MywiZXhwIjoxNjczNzk0MTYzfQ.kLZngufb9qBYQn42jsgjbgkZailJKWt7iRtFWCv60Hs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/capstone/v1/profile",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSaveImg",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzc1MDk2MywiZXhwIjoxNjczNzk0MTYzfQ.kLZngufb9qBYQn42jsgjbgkZailJKWt7iRtFWCv60Hs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/capstone/v1/profile/imgsave",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"profile",
+								"imgsave"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCreateImg",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzc1MDk2MywiZXhwIjoxNjczNzk0MTYzfQ.kLZngufb9qBYQn42jsgjbgkZailJKWt7iRtFWCv60Hs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/capstone/v1/profile/imgcreate",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"profile",
+								"imgcreate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteImgByImgId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzc1MDk2MywiZXhwIjoxNjczNzk0MTYzfQ.kLZngufb9qBYQn42jsgjbgkZailJKWt7iRtFWCv60Hs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/capstone/v1/profile/delete/:imgId",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"profile",
+								"delete",
+								":imgId"
+							],
+							"variable": [
+								{
+									"key": "imgId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AddImage",
+			"item": [
+				{
+					"name": "AddImage",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzc1MDk2MywiZXhwIjoxNjczNzk0MTYzfQ.kLZngufb9qBYQn42jsgjbgkZailJKWt7iRtFWCv60Hs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ad/Desktop/Avater/desktop.jpg"
+								},
+								{
+									"key": "desc",
+									"value": "abc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/capstone/v1/addimg",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"addimg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYmNkQGdtYWlsLmNvbSIsImlhdCI6MTY3Mzc1MDk2MywiZXhwIjoxNjczNzk0MTYzfQ.kLZngufb9qBYQn42jsgjbgkZailJKWt7iRtFWCv60Hs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"id\": 1,\r\n    \"name\":\"tinhtran34\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/capstone/v1/user",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"capstone",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

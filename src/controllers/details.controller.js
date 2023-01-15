@@ -2,7 +2,7 @@ const { AppError } = require('../helpers/error');
 const { response } = require('../helpers/response');
 const detailService = require('../services/details.service');
 
-const getDetailbyId = () =>{
+const getDetailById = () =>{
     return async(req,res,next)=>{
         try {
             const {imgId} = req.params;
@@ -13,7 +13,7 @@ const getDetailbyId = () =>{
         }
     }
 }
-const getCommentbyImgId = () =>{
+const getCommentByImgId = () =>{
     return async(req,res,next)=>{
         try {
             const {imgId} = req.params;
@@ -36,10 +36,23 @@ const checkSavedImg = () =>{
         }
     }
 }
+const saveCmt = () => {
+    return async(req,res,next)=>{
+        try {
+            const {imgId,cmt} = req.body
+            const {user} = res.locals
+            const saveCmt = await detailService.saveCmtService(user,imgId,cmt)
+            res.status(200).json(response(saveCmt))
+        } catch (error) {
+            next(error)
+        }
+    }
+}
 
 
 module.exports = {
-    getDetailbyId,
-    getCommentbyImgId,
-    checkSavedImg
+    getDetailById,
+    getCommentByImgId,
+    checkSavedImg,
+    saveCmt
 }

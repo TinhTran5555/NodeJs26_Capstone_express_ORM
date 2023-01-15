@@ -64,14 +64,14 @@ const checkSavedImgService = async(user, imgId)=>{
         const checked = await userFound.hasImgSave(Number(imgId)) 
         console.log(imgId);
         if(checked){
+            hasSave = true
             msg="Image has been saved"
             img = imgFound
-            hasSave = true
         }else
-        {
+        {   
+            hasSave = false
             msg="Image has not been saved"
             img = null
-            hasSave = false
         }
         return {msg,img,hasSave}
     } catch (error) {
@@ -79,8 +79,39 @@ const checkSavedImgService = async(user, imgId)=>{
         throw error
     }
 }
+const saveCmtService = async(user, imgId, cmt)=>{
+    try {
+        const userFound = await User.findOne({
+            where:{
+                id:user.id
+            }
+        })
+        if(!userFound){
+            throw new AppError(404,'User not found')
+        }
+        const imgFound = await Image.findOne({
+            where:{
+                id:imgId
+            }
+        }); 
+        if(!imgFound){
+            throw new AppError(404,'Image not found')
+        }
+        await userFound.addImgComment(imgId, {
+            through: {
+                comment: cmt
+            }
+        })   
+        return "Ok"
+    } catch (error) {
+        console.log(error);
+        throw error
+    }
+}
+
 module.exports = {
     getDetailByIdService, 
     getCommentByImgIdService,
-    checkSavedImgService
+    checkSavedImgService,
+    saveCmtService
 };

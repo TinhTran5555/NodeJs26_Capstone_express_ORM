@@ -35,7 +35,7 @@ const register = async(data)=>{
             }
         })
         if(userFound){
-            throw new AppError(401,"email is existed")
+            throw new AppError(401,"Email is existed")
         }
         const createdUser = await User.create(data)
         return createdUser;
