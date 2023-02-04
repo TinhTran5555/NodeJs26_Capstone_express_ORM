@@ -28,7 +28,7 @@ v1.get('/profile/imgsave',authorization,manageController.getSaveImgByUserId())
 v1.get('/profile/imgcreate',authorization,manageController.getCreateImgByUserId())
 v1.delete('/profile/delete/:imgId',authorization,manageController.deleteImgById());
 // AddImagePage
-v1.get('/addimg',authorization,upload.single('file'),imageController.addImage());
+v1.post('/addimg',authorization,upload.single('file'),imageController.addImage());
 // UserPage
 v1.put('/user',authorization,userController.updateUser());
 
